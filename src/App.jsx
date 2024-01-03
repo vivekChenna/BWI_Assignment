@@ -1,15 +1,15 @@
 import Login from "./components/Login.jsx";
-import Products from "./components/MainContainer.jsx";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import MainContainer from "./components/MainContainer.jsx";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <Router>
+    <div>
       <Routes>
         <Route path="/" element={<Login />} />
-        <Route path="/products" element={<Products />} />
+        <Route path="/products" element={<MainContainer />} />
       </Routes>
-    </Router>
+    </div>
   );
 }
 
