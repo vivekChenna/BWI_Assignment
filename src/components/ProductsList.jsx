@@ -6,9 +6,10 @@ const ProductsList = () => {
     state: { products },
   } = cartState();
 
+  console.log(products?.products);
 
   return !products ? null : (
-    <div className=" mt-28 w-[70%] flex flex-wrap gap-10">
+    <div className=" mt-14 w-[70%] flex flex-wrap gap-10">
       {products?.products.map((productData) => {
         return <SingleProduct key={productData.id} productData={productData} />;
       })}

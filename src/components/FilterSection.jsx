@@ -2,7 +2,7 @@ import React from "react";
 
 const FilterSection = () => {
   return (
-    <div className=" border-2 border-black w-80 ml-5 mt-28 h-full">
+    <div className=" sticky top-36 mt-14 border-2 border-orange-700 w-80 ml-5 h-[70vh]">
       <h1 className=" text-center text-3xl font-semibold">Filter Products</h1>
 
       <div className=" flex flex-col gap-6 items-center mt-4">
@@ -10,13 +10,13 @@ const FilterSection = () => {
           <input
             type="radio"
             id="descending"
-            name="filter"
+            name="group1"
             value="DESCENDING"
           />
           <label htmlFor="descending">High To Low</label>
         </div>
         <div>
-          <input type="radio" id="ascending" name="filter" value="ASCENDING" />
+          <input type="radio" id="ascending" name="group1" value="ASCENDING" />
           <label htmlFor="ascending">Low To High</label>
         </div>
 

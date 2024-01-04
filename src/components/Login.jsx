@@ -23,11 +23,8 @@ const Login = () => {
 
   const HandleSubmission = async () => {
     if (!formData.fullName || !formData.password) {
-      
       return;
     } else {
-
-
       let response = await fetch("https://dummyjson.com/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -39,7 +36,6 @@ const Login = () => {
 
       let data = await response.json();
 
-
       localStorage.setItem("token", data.token);
       navigate("/products");
     }
@@ -47,8 +43,8 @@ const Login = () => {
 
   return (
     <div>
-      <img src={BgImg} alt="bg-img" className=" h-screen bg-cover w-full" />
       <Header />
+      <img src={BgImg} alt="bg-img" className=" h-screen w-screen top-0 absolute -z-10" />
 
       <div className=" absolute top-28 left-28 z-10 w-96 bg-green-600 bg-opacity-40 pt-14 h-96 rounded-xl">
         <h1 className=" text-center text-3xl font-bold">

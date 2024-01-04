@@ -6,8 +6,9 @@ import ProductsList from "./ProductsList.jsx";
 const MainContainer = () => {
   const { state, dispatch } = cartState();
 
+
   return (
-    <div>
+    <div className=" mb-4">
       <Header />
       <div className=" flex gap-20">
         <FilterSection />

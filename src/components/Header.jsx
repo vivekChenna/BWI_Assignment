@@ -2,14 +2,16 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AppLogo from "../assets/Images/shopping-icon.png";
 import { FaCartShopping } from "react-icons/fa6";
+import { useLocation } from "react-router-dom";
 import { cartState } from "../context/userContext";
 
 const Header = () => {
   const navigate = useNavigate();
   const [token, setToken] = useState(null);
+  const location = useLocation();
 
   const {
-    state: { products },
+    state: { cart },
   } = cartState();
 
   useEffect(() => {
@@ -19,7 +21,12 @@ const Header = () => {
   const validUserToken = () => {
     if (localStorage.getItem("token")) {
       setToken(localStorage.getItem("token"));
-      navigate("/products");
+
+      if (location.pathname === "/cart") {
+        navigate("/cart");
+      } else {
+        navigate("/products");
+      }
     } else {
       navigate("/");
     }
@@ -38,8 +45,8 @@ const Header = () => {
     <div
       className={
         token
-          ? " absolute top-0  h-20 w-full flex items-center justify-around bg-yellow-600 p-2"
-          : "absolute top-0  h-20 w-full flex items-center bg-yellow-600 p-2"
+          ? " sticky top-0  h-20 w-full flex items-center justify-around bg-yellow-600 p-2"
+          : "sticky top-0  h-20 w-full flex items-center bg-yellow-600 p-2"
       }
     >
       <img
@@ -54,13 +61,13 @@ const Header = () => {
             placeholder="Search..."
             className=" w-full p-2 outline-none rounded-lg"
             onChange={HandleInputChange}
-            value={inputSearch}
           />
         </div>
       ) : null}
       {token ? (
-        <div className=" cursor-pointer" onClick={() => navigate("/cart")}>
-          <FaCartShopping fontSize="1.75rem" color="white" />
+        <div className=" cursor-pointer flex relative" onClick={() => navigate("/cart")}>
+          <FaCartShopping fontSize="2rem" color="white" />
+          <p className=" absolute -mt-3 left-3 text-xl text-green-800 font-semibold">{cart.length}</p>
         </div>
       ) : null}
       {token ? (
