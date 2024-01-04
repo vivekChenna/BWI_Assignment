@@ -23,11 +23,10 @@ const Login = () => {
 
   const HandleSubmission = async () => {
     if (!formData.fullName || !formData.password) {
-      console.log("please fill all the details");
+      
       return;
     } else {
-      console.log(formData.fullName);
-      console.log(formData.password);
+
 
       let response = await fetch("https://dummyjson.com/auth/login", {
         method: "POST",
@@ -39,10 +38,9 @@ const Login = () => {
       });
 
       let data = await response.json();
-      console.log(data.token);
+
 
       localStorage.setItem("token", data.token);
-
       navigate("/products");
     }
   };

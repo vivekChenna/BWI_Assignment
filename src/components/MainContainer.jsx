@@ -1,16 +1,18 @@
 import Header from "./Header";
 import { cartState } from "../context/userContext.jsx";
+import FilterSection from "./FilterSection.jsx";
+import ProductsList from "./ProductsList.jsx";
 
 const MainContainer = () => {
   const { state, dispatch } = cartState();
 
-  console.log(state.products);
-
   return (
     <div>
       <Header />
-
-      <div></div>
+      <div className=" flex gap-20">
+        <FilterSection />
+        <ProductsList />
+      </div>
     </div>
   );
 };
