@@ -44,6 +44,15 @@ const reducer = (state, action) => {
       };
     }
 
+    case "CHANGE_CART_QTY": {
+      return {
+        ...state,
+        cart: state.cart.filter((p) =>
+          p.id === action.payload.id ? (p.qty = action.payload.qty) : p.qty
+        ),
+      };
+    }
+
     default:
       return state;
   }
